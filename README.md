@@ -27,4 +27,5 @@ Uses real information from your Metamask wallet to display the information of th
 ## Screenshots
 
 ![Homepage](assets/home.png)
+![Metamask Modal](assets/metamask.jpeg)
 ![Mint Modal](assets/modal.png)
