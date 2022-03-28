@@ -6,11 +6,22 @@ import './Main.css'
 
 const Main = ({ selectedPunk, punkListData}) => {
     const[activePunk, setActivePunk] = useState(punkListData[0])
+    const [account, setAccount] = useState('')
+
+    const loadData = async () => {
+        if(!window.ethereum) return 
+        const [currAccount] = await window.ethereum.request({ method: 'eth_requestAccounts' })
+        setAccount(currAccount)
+        
+      };
+    
+      useEffect(() => loadData(), [])
+    
     useEffect(() => {
         setActivePunk(punkListData[selectedPunk])
     },[punkListData, selectedPunk])
-    console.log(selectedPunk,'🌈')
-    console.log(activePunk, activePunk.token_id, '💦')
+    // console.log(selectedPunk)
+    // console.log(activePunk, activePunk.token_id)
   return (
     <div className='main'>
         <div className='mainContent'>
@@ -19,37 +30,37 @@ const Main = ({ selectedPunk, punkListData}) => {
                     <img
                       className='selectedPunk'
                       src={punkListData[activePunk.token_id].image_url} 
-                    //   src='https://ipfs.thirdweb.com/ipfs/QmTRPvvzYfsKihxD9B647EjxGJzSdxY2rL53DB5BLf15Fs/0.webp'
                       alt="" 
                     />
                 </div>
             </div>
-        <div className='punkDetails' style={{color:'#fff'}}>
-            <div className='title'>
-                {punkListData[activePunk.token_id].name}
-            <span className='itemNumber'>•#{punkListData[activePunk.token_id].token_id}</span>
-        </div>
 
-        <div className='owner'>
-            <div className='ownerImageContainer'>
-                <img src={activePunk.owner.profile_img_url} alt="" />
+            <div className='punkDetails' style={{color:'#fff'}}>
+                <div className='title'>
+                {punkListData[activePunk.token_id].name}
+                <span className='itemNumber'>•#{punkListData[activePunk.token_id].token_id}</span>
             </div>
-            <div className='ownerDetails'>
-                <div className='ownerNameAndHandle'>
-                    <div>{activePunk.owner.address}</div>
-                    <div className='ownerHandle'>@parth297</div>
+
+            <div className='owner'>
+                <div className='ownerImageContainer'>
+                    <img src={activePunk.owner.profile_img_url} alt="" />
                 </div>
-                <div className='ownerLink'>
-                    <img src={instagramLogo} alt="" />
-                </div>
-                <div className='ownerLink'>
-                    <img src={twitterLogo} alt="" />
-                </div>
-                <div className='ownerLink'>
-                    <img src={moreIcon} alt="" />
+                <div className='ownerDetails'>
+                    <div className='ownerNameAndHandle'>
+                        <div>{account}</div>
+                        <div className='ownerHandle'>@parth297</div>
+                    </div>
+                    <div className='ownerLink'>
+                        <img src={instagramLogo} alt="" />
+                    </div>
+                    <div className='ownerLink'>
+                        <img src={twitterLogo} alt="" />
+                    </div>
+                    <div className='ownerLink'>
+                        <img src={moreIcon} alt="" />
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
     </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import CollectionCard from './CollectionCard'
 import './PunkList.css'
 
-
 const PunkList = ({punkListData, setSelectedPunk}) => {
   return (
     <div className='punkList'>

@@ -1,0 +1,79 @@
+.modal {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  width: 80%;
+  max-width: 1024px;
+  padding: 32px;
+  border-radius: 18px;
+  transform: translateX(-50%);
+  background-color: #131313;
+  max-height: calc(90vh - 32px);
+  overflow: auto;
+}
+.modal-backdrop {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  inset: 0;
+}
+
+.button {
+  font-size: 1rem;
+  padding: 12px 24px;
+  margin-right: 6px;
+  border-radius: 50px;
+  color: #3d3d3d;
+  cursor: pointer;
+  border: 0px;
+
+}
+.button:focus {
+  outline: none;
+}
+
+.button.primary {
+  background: linear-gradient(to right, #59f9b7, #66feea);
+}
+
+.button.secondary {
+  background: #66feea;
+}
+
+.button.accent {
+  background: #59f9b7;
+}
+
+.asset {
+  padding: 24px 0px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.asset input, .asset textarea {
+  display: inline-block;
+  width: calc(50% - 50px);
+  margin-right: 15px;
+  border: 1px solid rgb(51, 54, 104, 0);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background-color: rgba(255,255,255,0.05);
+  color: #fff;
+}
+.asset input:hover, .asset textarea:hover {
+  border: 1px solid rgb(43, 45, 83);
+}
+.asset input:focus, .asset textarea:focus {
+  outline: none;
+  border: 1px solid rgb(53, 58, 153);
+}
+
+.mt-2 {
+  margin-top: 12px;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

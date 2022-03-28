@@ -65,4 +65,8 @@
   padding: 15px 40px;
   border-radius: 50px;
   color: black;
+  cursor: pointer;
+}
+.loginButton:hover {
+  background: linear-gradient(to left, #59f9b7, #66feea);
 }
